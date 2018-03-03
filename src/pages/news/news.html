@@ -1,0 +1,64 @@
+<!--
+  Generated template for the NewsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+
+
+  <ion-toolbar no-border-top>
+
+    <ion-segment [(ngModel)]="News">
+
+
+      <ion-segment-button value="TouTiao">
+        头条
+      </ion-segment-button>
+
+      <ion-segment-button value="XinWen">
+        新闻
+      </ion-segment-button>
+
+      <ion-segment-button value="CaiJing">
+        财经
+      </ion-segment-button>
+
+      <ion-segment-button value="TiYu">
+        体育
+      </ion-segment-button>
+
+      <ion-segment-button value="YuLe">
+        娱乐
+      </ion-segment-button>
+
+      <ion-segment-button value="JunShi">
+        军事
+      </ion-segment-button>
+
+    </ion-segment>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="outer-content">
+  <ion-list>
+    <ion-list-header>
+      <ion-slides pager *ngFor="let item of getItems(News)"  >
+        <ion-slide *ngFor="let slide of item.slides">
+          <p class="slides-img" [innerHTML]="slide.img"></p>
+          <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+          <p [innerHTML]="slide.description"></p>
+        </ion-slide>
+      </ion-slides>
+    </ion-list-header>
+    <ion-item *ngFor="let item of getItems(News)">
+      {{ item.content }}
+
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

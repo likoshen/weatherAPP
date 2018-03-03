@@ -1,0 +1,6 @@
+1、安装极光推送
+cordova plugin add jpush-phonegap-plugin --variable APP_KEY=your_jpush_appkey
+npm install ionic3-jpush --save
+
+2、安装百度定位插件，ios的key值是错的，因为必须要有这个参数，所以加一个假的。
+ionic cordova plugin add cordova-plugin-baidumaplocation --variable ANDROID_KEY="peScBqKEPsZGTclCHvl2kfxOKas536qV"  --variable IOS_KEY="peScBqKEPsZGTclCHvl2kfxOKas536qV"

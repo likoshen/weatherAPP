@@ -1,0 +1,99 @@
+page-weather {
+    .bg-color {
+        background-color: #efeeee;
+    }
+    ion-grid.content-center1 {
+        height: 10rem;
+        background-color: white;
+        margin-bottom: 0.1rem;
+        text-align: center;
+    }
+    .content-center1-1 {
+        height: 9.2rem;
+        padding-top: 7rem;
+    }
+    ion-grid.content-center2 {
+        height: 10rem;
+        background-color: white;
+        margin-bottom: 0.1rem;
+        text-align: center;
+    }
+    .content-center2-1 {
+        height: 9.2rem;
+        padding-left: 4rem;
+    }
+    ion-grid.content-center3 {
+        height: 10rem;
+        background-color: white;
+        margin-bottom: 0.1rem;
+    }
+    .content-center3-1 {
+        height: 11.2rem;
+        padding-left: 3rem;
+    }
+    .content-center3-2 {
+        width: 10rem;
+        height: 2rem;
+        border-radius: 10rem
+    }
+    ion-grid.content-center4 {
+        height: 8rem;
+        margin-bottom: 0.1rem;
+        background-color:white;
+        float: left;
+    }
+    .content-center4-1 {
+        height: 8rem;
+        weight: 100%;
+        text-align: center;
+        font-size: 0.4rem;
+        padding-top: 1rem;
+        white-space: nowrap; //不换行
+        overflow-x: scroll;
+    }
+    .content-center4-2 {
+        display: inline-block; //行内元素和块状元素结合
+        width: 9%;
+        height: 6rem;
+        margin: 0 1rem;
+    }
+    ion-grid.content-center5 {
+        height: 3rem;
+        margin-bottom: 0.1rem;
+        background-color:white;
+    }
+    ion-grid.content-center6 {
+        height: 14rem;
+        margin-bottom: 0.1rem;
+        background-color: white;
+    }
+    .content-center6-1 div {
+        text-align: center;
+        color: black;
+    }
+    ion-grid.content-center7 {
+        height: 3rem;
+        margin-bottom: 0.1rem;
+        background-color: white;
+    }
+    .content-center7-1 {
+        height: 2.2rem;
+        color: rgb(175, 175, 175);
+    }
+    .content-center7-1 ion-row {
+        height: 100%;
+    }
+    ion-grid.content-center8{
+        height:20rem;
+        margin-top:1rem;
+        line-height: 0.2rem
+    }
+    p.content-center8-1 {
+        color: black;
+        font-size: 1.4rem;
+        font-weight: bolder;
+    }
+    p.content-center8-2 {
+        color: rgb(175, 175, 175);
+    }
+}
