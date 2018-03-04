@@ -1,18 +1,86 @@
-<!--
-  Generated template for the HomePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
+<ion-header no-border>
   <ion-navbar>
-    <ion-title>home</ion-title>
-  </ion-navbar>
+    <ion-buttons left class="leftBtn">
+      <button ion-button icon-only>
+        <i class="iconfont icon-tongcheng_chengshi leftbutton"></i>
+      </button>
+    </ion-buttons>
 
+    <ion-title>
+      <i class="iconfont icon-location"></i>天河区</ion-title>
+
+    <ion-buttons right class="rightBtn">
+      <button ion-button icon-only>
+        <i class="iconfont icon-gengduo"></i>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <div class="top-content">
+    <img src="assets/images/taiyang.png" alt="" class="top-img">
+    <div class="current-wendu">36</div>
+    <div class="weather">晴</div>
+    <div class="current-wendu">36</div>
+    <div class="wenduArea">
+      <span>20</span>
+      <span>~</span>
+      <span>30</span>
+    </div>
+    <div class="new-content">
+      <h2>实时新闻头条：</h2>
+      <button class="item-c">AmaoAxiao火热上线</button>
+      <button class="item-c">箫箫被评为亚洲最帅</button>
+      <button class="item-c">AmaoAxiao火热上线</button>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <button class="moreNew">更多</button>
+    </div>
+  </div>
+  <div class="bottom-content">
+    <div class="day">
+      <div class="b-t1">今天</div>
+      <div class="b-icon">
+        <i class="iconfont icon-dayu"></i>
+      </div>
+      <div class="b-wendu">36度</div>
+    </div>
+    
+    <div class="day">
+      <div class="b-t1">28</div>
+      <div class="b-icon">
+        <i class="iconfont icon-dayu"></i>
+      </div>
+      <div class="b-wendu">36度</div>
+    </div>
 
+    <div class="day">
+      <div class="b-t1">29</div>
+      <div class="b-icon">
+        <i class="iconfont icon-dayu"></i>
+      </div>
+      <div class="b-wendu">36度</div>
+    </div>
+
+    <div class="day">
+      <div class="b-t1">31</div>
+      <div class="b-icon">
+        <i class="iconfont icon-dongyu"></i>
+      </div>
+      <div class="b-wendu">36度</div>
+    </div>
+
+    <div class="day">
+      <div class="b-t1">31</div>
+      <div class="b-icon">
+        <i class="iconfont icon-baoyu"></i>
+      </div>
+      <div class="b-wendu">36度</div>
+    </div>
+  </div>
 </ion-content>
