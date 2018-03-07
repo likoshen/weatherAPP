@@ -1,3 +1,89 @@
 page-city-search {
+    .content-md,.content-ios{
+        background-color: #eaeeef;
+      }
+    ion-header{
+        border-bottom:1px solid #ddd;
+      }
+        .nodata{
+          width:100%;
+          text-align: center;
+          margin:1rem auto;
+          color: #999;
+          font-size:1.5rem;
+        }
+        .toolbar-background-ios,.toolbar-background-md{
+            background: #fff
+        }
+        .searchbar-ios .searchbar-search-icon{
+            width:1.1rem;
+            height: 1.1rem;
+            top:.95rem;
+            left:.8rem;
+        }
+        .toolbar .searchbar-ios .searchbar-input{
+            background: #eee;
+        }
+        .work-list-search-bg{
+            // padding:0 1.5rem;
+        }
+        .work-list-search-history{
+            padding:0 1.5rem 1rem 1.5rem;
+            margin-bottom: 1rem;
+            min-height: 16rem;
+            position: relative;
+            background: #fff;
+        }
+        .work-list-search-title{
+            padding:1.5rem 0 .7rem 0;
+            font-size:1.4rem;
+            color: #333;
+        }
+        .col,.grid{
+            padding: 0;
+        }
+        .work-list-search-item{
+            display: inline-block;;
+            padding:.6rem 1rem;
+            font-size:1.4rem;
+            color: #666;
+            margin-right: .5rem;
+            margin-bottom: .5rem;
+            max-width: 20rem;
+            line-height: 1.4rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            background-color: #eeeeee;
+            border-radius: 4px;
+        }
+        .work-list-search-item-delete{
+            position: absolute;
+            bottom:0;
+            left:50%;
+            margin-left: -6rem;
+            width: 12rem;
+            height: 2.5rem;
+            background: #fff;
+            color:#999;
+            font-size:1.2rem;
+            box-shadow:  0 0 0 rgba(0,0,0,0);
+            -webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+        .searchbar-ios .searchbar-input{
+          line-height: 2rem;
+        }
+       
 
+
+        .city-list{
+            color:#999;
+        }
+        .list-md[no-lines] .item-block, .list-md[no-lines] ion-item-options, .list-md[no-lines] .item .item-inner{
+            border-width:1px;
+        }
+        .label{
+            color:#333;
+            font-size:1.5rem;
+        }
 }

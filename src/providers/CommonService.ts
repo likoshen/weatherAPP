@@ -39,26 +39,30 @@ export class CommonService {
   }
 
   //确认框
-  public myConfirm(title: string, msg: string, confirmFun: any) {
-    let alert = this.alertCtrl.create({
-      title: title,
-      message: msg,
-      buttons: [
-        {
-          text: '取消',
-          role: 'cancel',
-          handler: () => {
-            //console.log('Cancel clicked');
+  public myConfirm(title: string, msg: string) {
+    return new Promise((resolve,reject)=> {
+      let alert = this.alertCtrl.create({
+        title: title,
+        message: msg,
+        buttons: [
+          {
+            text: '取消',
+            role: 'cancel',
+            handler: () => {
+              //console.log('Cancel clicked');
+            }
+          },
+          {
+            text: '确定',
+            handler: ()=>{
+              resolve();
+            }
           }
-        },
-        {
-          text: '确定',
-          handler: () => confirmFun()
-        }
-      ],
-      enableBackdropDismiss: false
-    });
-    alert.present();
+        ],
+        enableBackdropDismiss: false
+      });
+      alert.present();
+    })
   }
 
   //页面加载loading界面，自定义样式

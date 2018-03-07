@@ -63,4 +63,24 @@ page-city-manage {
     .opacity5{
         opacity: .5;
     }
+     /*底部按钮 of start*/
+  .footer-btn>.toolbar-ios{
+    padding:0;
+  }
+  .footer-btn button{
+    padding:0;
+    display: block;
+    width: 100%;
+    height:44px;
+    color: #fff;
+    background-color: #108ee9;
+    font-size:1.8rem;
+  }
+  .text-input-md{
+    margin:0;
+  }
+  .text-input-ios{
+    margin: .5rem 0;
+  }
+  /*底部按钮 of end*/
 }

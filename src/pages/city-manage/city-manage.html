@@ -3,13 +3,17 @@
 
     <ion-title>城市管理</ion-title>
 
-    <ion-buttons right class="rightBtn1">
+    <ion-buttons right class="rightBtn1" (click)="editPage()" *ngIf="!isShowDelete">
       <button ion-button icon-only>
         <i class="iconfont icon-bianji"></i>
       </button>
     </ion-buttons>
-
-    <ion-buttons right class="rightBtn2">
+    <ion-buttons right class="rightBtn1" (click)="confirmBtn()" *ngIf="isShowDelete">
+      <button ion-button icon-only>
+        <i class="iconfont icon-gou"></i>
+      </button>
+    </ion-buttons>
+    <ion-buttons right class="rightBtn2" (click)="goSearchPage()">
       <button ion-button icon-only>
         <i class="iconfont icon-add"></i>
       </button>
@@ -19,25 +23,19 @@
 
 <ion-content>
   <div class="city-list">
-    <div class="city-item">
-      <i class="iconfont icon-shanchu2 item-del"></i>
+    <div class="city-item" *ngFor="let item of localDataArray; index as i" [ngStyle]="{'background-color':item.isSelected ? '#eee': '#fff' }">
+      <i class="iconfont icon-shanchu2 item-del" *ngIf="isShowDelete" (click)="deleteCity(item, i)"></i>
       <i class="iconfont icon-xue item-logo"></i>
-      <span class="address">广州市</span>
-      <!-- <span class="wendu">28/30</span> -->
-      <span class="item-btn">
-        <button class="opacity5">设为提醒城市</button>
+      <span class="address">{{item.name}}</span>
+      <span class="wendu" *ngIf="!isShowDelete">28/30</span>
+      <span class="item-btn" *ngIf="isShowDelete">
+        <button [ngClass]="{'opacity5': item.isSelected}" (click)="setCity(item, i)">{{item.isSelected ? '已为提醒城市' : '设为提醒城市'}}</button>
       </span>
-    </div>
-
-    <div class="city-item">
-      <i class="iconfont icon-xue"></i>
-      <span class="address">广州市</span>
-      <span class="wendu">28/30</span>
-    </div>
-    <div class="city-item">
-      <i class="iconfont icon-xue"></i>
-      <span class="address">广州市</span>
-      <span class="wendu">28/30</span>
     </div>
   </div>
 </ion-content>
+<ion-footer no-border class="footer-btn" tappable mode="ios" (click)="goBack()">
+  <ion-toolbar text-center  color="footerBtn" mode="ios">
+     <button>返回</button>
+  </ion-toolbar>
+</ion-footer>

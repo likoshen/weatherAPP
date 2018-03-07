@@ -8,12 +8,15 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { BusinessService } from '../providers/business.service';
 import { CommonService } from '../providers/CommonService';
 import { HttpService } from '../providers/HttpService';
+import { HttpClientModule } from '@angular/common/http';
+import { TokenService } from '../providers/token-service';
 
 @NgModule({
   declarations: [MyApp],
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     JsonpModule,
     IonicModule.forRoot(MyApp,{
       backButtonText:'',
@@ -30,6 +33,7 @@ import { HttpService } from '../providers/HttpService';
     StatusBar,
     BusinessService,
     CommonService,
+    TokenService,
     HttpService,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
