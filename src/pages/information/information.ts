@@ -14,53 +14,39 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 	templateUrl: 'information.html',
 })
 export class InformationPage {
+	segmentDefaultValue: string = "0";
+	segmentButton = [];
+	slidePageArray = [];
 	@ViewChild('mySlider') slider: Slides;
-	private selected_segment = 0;
-	top_segment = 'top_0';
 	constructor(public navCtrl: NavController, public navParams: NavParams) {
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad InformationPage');
-	}
-	select(index) {
-		if (index === 2) {
-			this.top_segment = 'top_2';
-		}
-		if (index === 1) {
-			this.top_segment = 'top_1';
-		}
-		if (index === 0) {
-			this.top_segment = 'top_0';
-		}
-		this.slider.slideTo(index, 500);
+		this.slidePageArray = [
+			{id:0,pages:'page0'},
+			{id:1,pages:'page1'},
+			{id:2,pages:'page2'},
+			{id:3,pages:'page3'},
+			{id:4,pages:'page4'},
+			{id:5,pages:'page5'},
+		];
 	}
 
-	onSlideChanged($event) {
+	onSegmentChanged(segmentButton) {
+		console.log(typeof(segmentButton.value))
+		this.slider.slideTo(segmentButton.value);
+	  }
+
+	onSlideChanged(slider) {
 		console.log('你懂了')
-		if (((($event.touches.startX - $event.touches.currentX) <= 100) || (($event.touches.startX - $event.touches.currentX) > 0)) && (this.slider.isBeginning() || this.slider.isEnd())) {
-			console.log("interdit Direction");
-		}
-		else {
-			console.log("OK Direction");
-		}
+		if (slider._activeIndex <= 7 && slider._activeIndex >= 0) {
+			this.segmentDefaultValue = slider._activeIndex.toString();
+		  } else {
+			this.segmentDefaultValue = '7';
+		  }
 
 	}
 
-	panEvent(e) {
-		console.log('我懂了')
-		let currentIndex = this.slider.getActiveIndex();
-		console.log(currentIndex)
-		if (currentIndex === 2) {
-			this.top_segment = 'top_2';
-		}
-		if (currentIndex === 1) {
-			this.top_segment = 'top_1';
-		}
-		if (currentIndex === 0) {
-			this.top_segment = 'top_0';
-		}
-	}
 
 
 }
