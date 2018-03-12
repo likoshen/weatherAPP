@@ -20,7 +20,7 @@ import { TokenService } from '../providers/token-service';
     JsonpModule,
     IonicModule.forRoot(MyApp,{
       backButtonText:'',
-      backButtonIcon:'ios-arrow-back',
+      backButtonIcon:'arrow-back',
       iconMode:'md',
       mode:"md",
       tabsHideOnSubPages:'true',

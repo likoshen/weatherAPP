@@ -7,26 +7,38 @@
       </button>
     </ion-buttons>
     <ion-scroll scrollX="true">
+       
         <ion-segment class="top_segment" [(ngModel)]="segmentDefaultValue" (ionChange)="onSegmentChanged($event)">
             <ion-segment-button value="0">
-              推荐
+                头条
             </ion-segment-button>
             <ion-segment-button  value="1">
-              娱乐
+                社会
             </ion-segment-button>
             <ion-segment-button  value="2">
-              养生
+                国内
             </ion-segment-button>
             <ion-segment-button  value="3">
-              视频
+                国际
             </ion-segment-button>
             <ion-segment-button  value="4">
-              情感
+                娱乐
             </ion-segment-button>
             <ion-segment-button  value="5">
-              奇闻
+                体育
             </ion-segment-button>
-            
+            <ion-segment-button  value="6">
+                军事
+            </ion-segment-button>
+            <ion-segment-button  value="7">
+                科技
+            </ion-segment-button>
+            <ion-segment-button  value="8">
+                财经
+            </ion-segment-button>
+            <ion-segment-button  value="9">
+                时尚
+            </ion-segment-button>
           </ion-segment>
     </ion-scroll>
     <ion-buttons right mode="md">
@@ -40,15 +52,18 @@
 
 
 <ion-content>
+    <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher> -->
   <ion-slides #mySlider (ionSlideWillChange)="onSlideChanged($event)">
     <ion-slide class="page1" *ngFor="let item of slidePageArray; index as i">
       <ion-content class="fixed-content" *ngIf="i%2 == 0">
         <ion-list class="information-list">
-           <button ion-item>
-             <span text-wrap>杨幂的发际线再也回不去了么？网友吐槽像半秃"</span>
-             <p>腾讯娱乐</p>
+           <button ion-item *ngFor="let item of resultArray" (click)="goDetail(item.url)">
+             <span text-wrap>{{item.title}}</span>
+             <p>{{item.author_name}}</p>
              <ion-avatar item-end>
-                <img class="item-img" src="http://03.imgmini.eastday.com/mobile/20170105/20170105110355_806f4ed3fe71d04fa452783d6736a02b_1_mwpm_03200403.jpeg" alt="" >
+                <img class="item-img" src="{{item.thumbnail_pic_s}}" alt="" >
               </ion-avatar>
            </button>
         </ion-list>
@@ -56,13 +71,13 @@
 
       <ion-content class="fixed-content" *ngIf="i%2 != 0">
         <ion-list class="information-list information-list1">
-           <button ion-item>
+           <button ion-item *ngFor="let item of resultArray" (click)="goDetail(item.url)">
             <ion-label text-wrap>
-              <span class="item-title">杨幂的发际线再也回不去了么？网友吐槽像半秃"</span>
-              <img class="item-imgs" src="http://03.imgmini.eastday.com/mobile/20170105/20170105110355_806f4ed3fe71d04fa452783d6736a02b_1_mwpm_03200403.jpeg" alt="" >
-              <img class="item-imgs" src="http://03.imgmini.eastday.com/mobile/20170105/20170105110355_806f4ed3fe71d04fa452783d6736a02b_1_mwpm_03200403.jpeg" alt="" >
-              <img class="item-imgs" src="http://03.imgmini.eastday.com/mobile/20170105/20170105110355_806f4ed3fe71d04fa452783d6736a02b_1_mwpm_03200403.jpeg" alt="" >
-              <p>腾讯娱乐</p>
+              <span class="item-title">{{item.title}}</span>
+              <img class="item-imgs" src="{{item.thumbnail_pic_s}}" alt="" >
+              <img class="item-imgs" src="{{item.thumbnail_pic_s02}}" alt="" >
+              <img class="item-imgs" src="{{item.thumbnail_pic_s03}}" alt="" >
+              <p>{{item.author_name}}</p>
             </ion-label>
             
            </button>

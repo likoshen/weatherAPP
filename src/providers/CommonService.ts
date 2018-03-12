@@ -80,6 +80,7 @@ export class CommonService {
   public loading() {
     let loading = this.loadingCtrl.create({
       spinner: "circles",
+      content: '加载中...'
     });
     loading.present();
     return loading;

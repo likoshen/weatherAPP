@@ -104,7 +104,7 @@ export class HttpService {
       $.ajax({
         dataType: "json",
         type: "post",
-        url: 'http://localhost/APP/ajaxData.php',
+        url: 'http://111.231.253.123/ajaxData.php',
         data: {
           url: URL
         },
