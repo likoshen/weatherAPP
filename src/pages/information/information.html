@@ -52,9 +52,9 @@
 
 
 <ion-content>
-    <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
-      </ion-refresher> -->
+      </ion-refresher>
   <ion-slides #mySlider (ionSlideWillChange)="onSlideChanged($event)">
     <ion-slide class="page1" *ngFor="let item of slidePageArray; index as i">
       <ion-content class="fixed-content" *ngIf="i%2 == 0">
