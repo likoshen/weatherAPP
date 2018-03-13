@@ -1,11 +1,6 @@
 <ion-header no-shadow no-border>
   <ion-navbar color="light">
-    <ion-buttons left>
-      <button ion-button icon-only>
-        <ion-icon name="arrow-back"></ion-icon>
-       
-      </button>
-    </ion-buttons>
+  
     <ion-scroll scrollX="true">
        
         <ion-segment class="top_segment" [(ngModel)]="segmentDefaultValue" (ionChange)="onSegmentChanged($event)">
@@ -41,7 +36,7 @@
             </ion-segment-button>
           </ion-segment>
     </ion-scroll>
-    <ion-buttons right mode="md">
+    <ion-buttons right mode="md" (click)="goSetting()">
       <button ion-button icon-only>
         <i class="iconfont icon-shezhi-xue setting"></i>
       </button>

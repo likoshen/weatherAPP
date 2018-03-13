@@ -1,0 +1,39 @@
+<ion-header no-shadow no-border>
+
+  <ion-navbar color="light" mode='ios'>
+    <ion-title text-center>设置</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="list1">
+    <button ion-item>
+      <i class="iconfont icon-location" item-start></i>
+      <span>当前城市：广州市</span>
+    </button>
+  </ion-list>
+
+  <ion-list class="list1 list2">
+    <button ion-item (click)="clearData()">
+      <i class="iconfont icon-qinglihuancun" item-start></i>
+      <span>清理缓存</span>
+    </button>
+
+    <button ion-item (click)="aboutme()">
+      <i class="iconfont icon-guanyu" item-start></i>
+      <span>关于我们</span>
+    </button>
+    <button ion-item (click)="tellme()">
+      <i class="iconfont icon-fankui" item-start></i>
+      <span>反馈意见</span>
+    </button>
+
+    <button ion-item>
+      <i class="iconfont icon-ziyuan" item-start></i>
+      <span>当前版本</span>
+      <div item-end>v1.0.0</div>
+    </button>
+  </ion-list>
+</ion-content>

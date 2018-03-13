@@ -122,6 +122,9 @@ page-home {
         background: transparent;
         color:#fff;
         margin:.8rem auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         box-shadow: -2px 2px .5rem 0px 
 		#ffffff;
     }

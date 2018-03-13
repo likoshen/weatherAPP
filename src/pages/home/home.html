@@ -9,7 +9,7 @@
     <ion-title>
       <i class="iconfont icon-location"></i>天河区</ion-title>
 
-    <ion-buttons right class="rightBtn">
+    <ion-buttons right class="rightBtn" (click)="goInformation()">
       <button ion-button icon-only>
         <i class="iconfont icon-gengduo"></i>
       </button>
@@ -29,17 +29,15 @@
       <span>~</span>
       <span>30</span>
     </div>
-    <div class="new-content">
+    <div class="new-content" *ngIf="resultArray.length>0">
       <h2>实时新闻头条：</h2>
-      <button class="item-c">AmaoAxiao火热上线</button>
-      <button class="item-c">箫箫被评为亚洲最帅</button>
-      <button class="item-c">AmaoAxiao火热上线</button>
+      <button class="item-c" *ngFor="let item of resultArray" (click)="goDetail(item.url)">{{item.title}}</button>
       <ul>
         <li></li>
         <li></li>
         <li></li>
       </ul>
-      <button class="moreNew">更多</button>
+      <button class="moreNew" (click)="moreInfo()">更多</button>
     </div>
   </div>
   <div class="bottom-content">

@@ -213,4 +213,8 @@ export class InformationPage {
 		this.navCtrl.push('InformationDetailPage', item);
 	}
 
+
+	goSetting(){
+		this.navCtrl.push('SettingPage');
+	}
 }
