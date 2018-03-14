@@ -1,181 +1,211 @@
 page-home {
-    .toolbar-background-md{
-        background-color: transparent;
-    }
-    .content-md{
-        background-image: linear-gradient(180deg, 
-		#00baff 0%, 
-		#30daff 100%);
-    }
-    .toolbar-title-md{
-        color:#fff;
-        text-align: center;
-    }
-    .iconfont{
-        font-size:2rem;
-        color: #fff;
-    }
+  .toolbar-background-md {
+    background-color: transparent;
+  }
+  .whiteday {
+    background-image: linear-gradient(180deg, #00baff 0%, #30daff 100%);
+  }
+  .blockday {
+    background-image: linear-gradient(180deg, #32377e 0%, #785ea2 100%);
+  }
+  .toolbar-title-md {
+    color: #fff;
+    text-align: center;
+  }
+  .iconfont {
+    font-size: 2rem;
+    color: #fff;
+  }
+  .leftbutton {
+    font-size: 3rem;
+    padding-left: 1rem;
+  }
+  .top-content {
+    position: relative;
+    width: 100%;
+    height: 75%;
+    color: #fff;
+    background: url(../assets/images/yun.png) no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+  }
+  .whiteday .bottom-box {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 40%;
+    background: url(../assets/images/whitebg.png) no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+  }
+  .blockday .bottom-box {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 40%;
+    background: url(../assets/images/blackbg.png) no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+  }
+  .whiteday .bottom-content {
+    width: 100%;
+    height: 54%;
+    margin-top: 35%;
+    background-color: #fff;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+  }
+  .blockday .bottom-content {
+    width: 100%;
+    height: 54%;
+    margin-top: 35%;
+    background-color: #454488;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+  }
+  .top-img {
+    position: absolute;
+    top: 0;
+    left: -1rem;
+    display: block;
+    width: 10rem;
+    height: 10rem;
+  }
+  .current-wendu {
+    font-family: "fits-icon" !important;
+    position: absolute;
+    top: 9rem;
+    left: 3rem;
+    font-size: 6rem;
+  }
+  .current-wendu:after {
+    content: "\e6ce";
+    display: inline-block;
+    font-size: 6rem;
+    color: #fff;
+    font-weight: 500;
+  }
+  .weather {
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    width: 5rem;
+    margin-left: -2.5rem;
+    font-size: 4rem;
+    text-align: center;
+  }
+  .wenduArea {
+    position: absolute;
+    top: 16rem;
+    left: 3rem;
+    font-family: "fits-icon" !important;
+  }
+  .wenduArea>span {
+    display: inline-block;
+    font-size: 2rem;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+  }
+  .wenduArea>span:nth-child(1)::after {
+    content: "\e6ce";
+    display: inline-block;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 500;
+  }
+  .wenduArea>span:nth-child(3)::after {
+    content: "\e6ce";
+    display: inline-block;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 500;
+  }
+  .new-content {
+    position: absolute;
+    top: 17rem;
+    right: 1rem;
+    width: 50%;
+  }
+  .new-content>h2 {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    text-align: center;
+  }
+  .new-content>button.item-c {
+    display: block;
+    width: 14rem;
+    line-height: 1.5rem;
+    border-radius: 1rem;
+    border: solid 1px #ffffff;
+    background: transparent;
+    color: #fff;
+    margin: .8rem auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-shadow: -2px 2px .5rem 0px #ffffff;
+  }
+  .new-content ul {
+    padding: 0;
+    margin: 0
+  }
+  .new-content li {
+    list-style: none;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 100%;
+    margin: .1rem auto;
+  }
+  .moreNew {
+    display: block;
+    padding: 0 2.5rem;
+    margin: .5rem auto;
+    line-height: 2rem;
+    border-radius: 1rem;
+    color: #80e8ff;
+    background: #fff;
+    box-shadow: -2px 2px .5rem 0px #ffffff;
+  }
+  .day {
+    width: 20%;
+    color: #5edaff;
+    height: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .leftbutton{
-        font-size:3rem;
-        padding-left: 1rem;
-    }
-    .top-content{
-        position: relative;
-        width:100%;
-        height: 75%;
-        color:#fff;
-        background: url(../assets/images/yun.png) no-repeat, url(../assets/images/whitebg.png) no-repeat;
-        background-position: center top, center bottom;
-        background-size:100% auto;
-    }
-    .bottom-content{
-        width:100%;
-        height: 25%;
-        background-color: #fff;
-        display: flex;
-        display: -webkit-flex;
-        justify-content: center;
-        align-items: center;
-        flex-flow: row nowrap;
-    }
-
-    .top-img{
-        position: absolute;
-        top: 0;
-        left: -1rem;
-        display: block;
-        width: 10rem;
-        height: 10rem;
-    }
-    .current-wendu{
-        font-family:"fits-icon" !important; 
-        position: absolute;
-        top:9rem;
-        left: 3rem;
-        font-size:6rem;
-    }
-    
-    .current-wendu:after{
-        content:"\e6ce";
-        display: inline-block;
-        font-size:6rem;
-        color:#fff;
-        font-weight: 500;
-    }
-
-    .weather{
-        position: absolute;
-        top:3rem;
-        left: 50%;
-        width: 5rem;
-        margin-left: -2.5rem;
-        font-size:4rem;
-        text-align: center;
-    }
-    .wenduArea{
-        position: absolute;
-        top:16rem;
-        left: 3rem;
-        font-family:"fits-icon" !important; 
-    }
-    .wenduArea>span{
-        display: inline-block;
-        font-size:2rem;
-        text-align: right;
-        margin:0;
-        padding:0;
-    }
-    .wenduArea>span:nth-child(1)::after{
-        content:"\e6ce";
-        display: inline-block;
-        font-size:2rem;
-        color:#fff;
-        font-weight: 500;
-    }
-    .wenduArea>span:nth-child(3)::after{
-        content:"\e6ce";
-        display: inline-block;
-        font-size:2rem;
-        color:#fff;
-        font-weight: 500;
-    }
-    .new-content{
-        position: absolute;
-        top:17rem;
-        right: 1rem;
-        width: 50%;
-    }
-    .new-content>h2{
-        width:100%;
-        margin: 0 auto;
-        font-size:1.2rem;
-        line-height: 1.8rem;
-        text-align: center;
-    }   
-    .new-content>button.item-c{
-        display: block;
-        width: 14rem;
-        line-height: 1.5rem;
-        border-radius: 1rem;
-        border: solid 1px #ffffff;
-        background: transparent;
-        color:#fff;
-        margin:.8rem auto;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        box-shadow: -2px 2px .5rem 0px 
-		#ffffff;
-    }
-    .new-content ul{
-        padding:0;
-        margin:0
-    }
-    .new-content li{
-        list-style: none;
-        width:5px;
-        height: 5px;
-        background-color: #fff;
-        border-radius: 100%;
-        margin: .1rem auto;
-    }
-    .moreNew{
-        display: block;
-        padding: 0 2.5rem;
-        margin: .5rem auto;
-        line-height: 2rem;
-        border-radius: 1rem;
-        color: #80e8ff;
-        background: #fff;
-        box-shadow: -2px 2px .5rem 0px 
-		#ffffff;
-    }
-
-    .day{
-        width:20%;
-        color: #5edaff;
-        height: 100%;
-        display: flex;
-        display: -webkit-flex;
-        flex-flow: column wrap;
-        justify-content: center;
-        align-items: center;
-    }
-    .b-t1{
-        height: 20%;
-        font-size:1.8rem;
-    }
-    .b-icon{
-        height: 30%;
-    
-    }
-    .b-icon>i{
-        font-size:3rem;
-        color:#5edaff;
-    }
-    .b-wendu{
-        font-size:1.8rem;
-        height: 30%;
-    }
+  .blockday .day {
+    color: #ffff;
+  }
+  .b-t1 {
+    height: 20%;
+    font-size: 1.8rem;
+  }
+  .b-icon {
+    height: 30%;
+  }
+  .b-icon>i {
+    font-size: 3rem;
+    color: #5edaff;
+  }
+  .blockday .b-icon>i {
+    color: #fff;
+  }
+  .b-wendu {
+    font-size: 1.8rem;
+    height: 30%;
+  }
 }

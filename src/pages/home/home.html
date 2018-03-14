@@ -18,9 +18,9 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content [ngClass]="{'whiteday':isShowWhiteDay, 'blockday': !isShowWhiteDay}">
   <div class="top-content">
-    <img src="assets/images/taiyang.png" alt="" class="top-img">
+    <img src="{{imgurl}}" alt="" class="top-img">
     <div class="current-wendu">36</div>
     <div class="weather">晴</div>
     <div class="current-wendu">36</div>
@@ -40,45 +40,47 @@
       <button class="moreNew" (click)="moreInfo()">更多</button>
     </div>
   </div>
-  <div class="bottom-content">
-    <div class="day">
-      <div class="b-t1">今天</div>
-      <div class="b-icon">
-        <i class="iconfont icon-dayu"></i>
+  <div class="bottom-box">
+    <div class="bottom-content">
+      <div class="day">
+        <div class="b-t1">今天</div>
+        <div class="b-icon">
+          <i class="iconfont icon-dayu"></i>
+        </div>
+        <div class="b-wendu">36度</div>
       </div>
-      <div class="b-wendu">36度</div>
-    </div>
-    
-    <div class="day">
-      <div class="b-t1">28</div>
-      <div class="b-icon">
-        <i class="iconfont icon-dayu"></i>
-      </div>
-      <div class="b-wendu">36度</div>
-    </div>
 
-    <div class="day">
-      <div class="b-t1">29</div>
-      <div class="b-icon">
-        <i class="iconfont icon-dayu"></i>
+      <div class="day">
+        <div class="b-t1">28</div>
+        <div class="b-icon">
+          <i class="iconfont icon-dayu"></i>
+        </div>
+        <div class="b-wendu">36度</div>
       </div>
-      <div class="b-wendu">36度</div>
-    </div>
 
-    <div class="day">
-      <div class="b-t1">31</div>
-      <div class="b-icon">
-        <i class="iconfont icon-dongyu"></i>
+      <div class="day">
+        <div class="b-t1">29</div>
+        <div class="b-icon">
+          <i class="iconfont icon-dayu"></i>
+        </div>
+        <div class="b-wendu">36度</div>
       </div>
-      <div class="b-wendu">36度</div>
-    </div>
 
-    <div class="day">
-      <div class="b-t1">31</div>
-      <div class="b-icon">
-        <i class="iconfont icon-baoyu"></i>
+      <div class="day">
+        <div class="b-t1">31</div>
+        <div class="b-icon">
+          <i class="iconfont icon-dongyu"></i>
+        </div>
+        <div class="b-wendu">36度</div>
       </div>
-      <div class="b-wendu">36度</div>
+
+      <div class="day">
+        <div class="b-t1">31</div>
+        <div class="b-icon">
+          <i class="iconfont icon-baoyu"></i>
+        </div>
+        <div class="b-wendu">36度</div>
+      </div>
     </div>
   </div>
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { HttpService } from '../../providers/HttpService';
+import { TokenService } from '../../providers/token-service';
 
 /**
  api地址：https://www.juhe.cn/docs/api/id/39
@@ -13,17 +14,21 @@ import { HttpService } from '../../providers/HttpService';
 })
 export class HomePage {
   resultArray = []; //保存实时新闻的头三条数组
+  imgurl = 'assets/images/taiyang.png';
+  isShowWhiteDay:boolean;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public http: HttpService,
+    public tokenCtrl: TokenService,
   ) {
+    this.isShowWhiteDay = this.tokenCtrl.isShowWhiteDay;
   }
 
   ionViewDidLoad() {
     // this.getNews();
-    this.getWeather();
+    // this.getWeather();
     console.log('ionViewDidLoad HomePage');
   }
   //前往城市管理

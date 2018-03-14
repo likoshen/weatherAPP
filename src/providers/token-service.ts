@@ -7,7 +7,8 @@ import { Injectable } from '@angular/core';
  */
 const key = {
     city: "city",
-    cityArray: "cityArray"
+    cityArray: "cityArray",
+    isShowWhiteDays: 'isShowWhiteDay'
 }
 @Injectable()
 export class TokenService {
@@ -39,6 +40,20 @@ export class TokenService {
      */
     get localDataArray(): any {
         return localStorage.getItem(key.cityArray);
+    }
+
+     /**
+     * 
+     * 是否显示白天
+     */
+    set isShowWhiteDay(value: any) {
+        localStorage.setItem(key.isShowWhiteDays, value);
+    }
+    /**
+     * 是否显示白天
+     */
+    get isShowWhiteDay(): any {
+        return localStorage.getItem(key.isShowWhiteDays);
     }
    
 }
