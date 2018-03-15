@@ -16,6 +16,19 @@ export class HomePage {
   resultArray = []; //保存实时新闻的头三条数组
   imgurl = 'assets/images/taiyang.png';
   isShowWhiteDay:string;
+  todayWeather: any = {
+    weather: '',  //当天天气
+    city: '',     //当地城市
+    temperature:'', //气温范围
+    temp: '',   //当前温度
+    future: []
+  }
+  futureday:any = {
+    temperature:"",  //气温范围
+    weather:'',
+    data:"",//为了的日期
+    icon:""  //图标
+  }
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -32,7 +45,7 @@ export class HomePage {
   }
   ionViewDidLoad() {
     // this.getNews();
-    // this.getWeather();
+    this.getWeather();
     console.log('ionViewDidLoad HomePage');
   }
   //前往城市管理
@@ -57,7 +70,11 @@ export class HomePage {
 			key: '6c0260a599a7c9bba7bf30385193928e'
 		}
 		this.http.ajaxHttp(url, param).then((res: any) => {
-			console.log(res.result);
+      console.log(res.result);
+      this.todayWeather.weather = res.result.today.weather;
+      this.todayWeather.city = res.result.today.city;
+      this.todayWeather.temperature = res.result.today.temperature;
+      this.todayWeather.temp = res.result.sk.temp;
 		}).catch(err => {
 			console.log(err);
 		})
@@ -84,4 +101,6 @@ export class HomePage {
   goDetail(item){
     this.navCtrl.push('InformationDetailPage', item);
   }
+
+
 }

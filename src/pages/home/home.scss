@@ -94,9 +94,8 @@ page-home {
   .weather {
     position: absolute;
     top: 3rem;
-    left: 50%;
-    width: 5rem;
-    margin-left: -2.5rem;
+    left: 0;
+    width: 100%;
     font-size: 4rem;
     text-align: center;
   }
@@ -104,6 +103,7 @@ page-home {
     position: absolute;
     top: 16rem;
     left: 3rem;
+    font-size: 2rem;
     font-family: "fits-icon" !important;
   }
   .wenduArea>span {

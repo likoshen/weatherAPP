@@ -7,7 +7,7 @@
     </ion-buttons>
 
     <ion-title>
-      <i class="iconfont icon-location"></i>天河区</ion-title>
+      <i class="iconfont icon-location"></i>{{todayWeather.city}}</ion-title>
 
     <ion-buttons right class="rightBtn" (click)="goInformation()">
       <button ion-button icon-only>
@@ -21,13 +21,13 @@
 <ion-content [ngClass]="{'whiteday':isShowWhiteDay == 'false', 'blockday': isShowWhiteDay== 'true'}">
   <div class="top-content">
     <img src="{{imgurl}}" alt="" class="top-img">
-    <div class="current-wendu">36</div>
-    <div class="weather">晴</div>
-    <div class="current-wendu">36</div>
+    <div class="current-wendu">{{todayWeather.temp}}</div>
+    <div class="weather">{{todayWeather.weather}}</div>
     <div class="wenduArea">
-      <span>20</span>
+      {{todayWeather.temperature}}
+      <!-- <span>20</span>
       <span>~</span>
-      <span>30</span>
+      <span>30</span> -->
     </div>
     <div class="new-content" *ngIf="resultArray.length>0">
       <h2>实时新闻头条：</h2>
