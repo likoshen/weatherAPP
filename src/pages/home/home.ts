@@ -15,7 +15,7 @@ import { TokenService } from '../../providers/token-service';
 export class HomePage {
   resultArray = []; //保存实时新闻的头三条数组
   imgurl = 'assets/images/taiyang.png';
-  isShowWhiteDay:boolean;
+  isShowWhiteDay:string;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -23,9 +23,13 @@ export class HomePage {
     public http: HttpService,
     public tokenCtrl: TokenService,
   ) {
-    this.isShowWhiteDay = this.tokenCtrl.isShowWhiteDay;
   }
-
+  ionViewWillEnter(){
+    
+    this.isShowWhiteDay = this.tokenCtrl.isShowWhiteDay;
+    this.imgurl = this.isShowWhiteDay == "false" ? 'assets/images/taiyang.png' : 'assets/images/taiyang_black.png'
+    console.log(typeof(this.isShowWhiteDay));
+  }
   ionViewDidLoad() {
     // this.getNews();
     // this.getWeather();

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { TokenService } from '../../providers/token-service';
 
 /**
  * Generated class for the SettingPage page.
@@ -14,17 +15,24 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
   templateUrl: 'setting.html',
 })
 export class SettingPage {
-
+  isShowWhiteDay:boolean;
   constructor(
     public navCtrl: NavController,
      public navParams: NavParams,
      public alerCtrl: AlertController,
+     public tokenCtrl: TokenService,
     ) {
+      this.isShowWhiteDay = this.tokenCtrl.isShowWhiteDay == 'false' ? false : true;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingPage');
   }
+  //保存是否白天黑夜的状态。保存在本地localstore
+  saveData(){
+    this.tokenCtrl.isShowWhiteDay = this.isShowWhiteDay;
+  }
+
   aboutme(){
     let alert = this.alerCtrl.create({
       title: '您好!',

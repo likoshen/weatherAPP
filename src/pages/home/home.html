@@ -18,7 +18,7 @@
 </ion-header>
 
 
-<ion-content [ngClass]="{'whiteday':isShowWhiteDay, 'blockday': !isShowWhiteDay}">
+<ion-content [ngClass]="{'whiteday':isShowWhiteDay == 'false', 'blockday': isShowWhiteDay== 'true'}">
   <div class="top-content">
     <img src="{{imgurl}}" alt="" class="top-img">
     <div class="current-wendu">36</div>
