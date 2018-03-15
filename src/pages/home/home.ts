@@ -16,6 +16,7 @@ export class HomePage {
   resultArray = []; //保存实时新闻的头三条数组
   imgurl = 'assets/images/taiyang.png';
   isShowWhiteDay:string;
+  dataArray = [];//保存时间数组
   todayWeather: any = {
     weather: '',  //当天天气
     city: '',     //当地城市
@@ -44,7 +45,7 @@ export class HomePage {
     console.log(typeof(this.isShowWhiteDay));
   }
   ionViewDidLoad() {
-    // this.getNews();
+    this.getNews();
     this.getWeather();
     console.log('ionViewDidLoad HomePage');
   }
@@ -75,9 +76,63 @@ export class HomePage {
       this.todayWeather.city = res.result.today.city;
       this.todayWeather.temperature = res.result.today.temperature;
       this.todayWeather.temp = res.result.sk.temp;
+      let obj = res.result.future;
+      for(let item in obj){
+         this.dataArray.push({
+            data: item.substr(10,2),
+            weather: obj[item].weather,
+            temperature: obj[item].temperature,
+            icon: this.getIcon(obj[item].weather)
+         });
+      }
+      console.log(this.dataArray);
+      this.todayWeather.future = this.dataArray.slice(0,5);
 		}).catch(err => {
 			console.log(err);
 		});
+  }
+  getIcon(weather){
+    if(weather == '晴'){
+      return "icon-qing";
+    }else if(weather == '雨'){
+      return "icon-yu";
+    }else if(weather == '小雨'){
+      return "icon-xiaoyu";
+    }else if(weather == '小雨转中雨'){
+      return "icon-xiaoyuzhuanzhongyu";
+    }else if(weather == '中雨'){
+      return "icon-zhongyu";
+    }else if(weather == '中雨转大雨'){
+      return "icon-zhongyuzhuandayu";
+    }else if(weather == '大雨'){
+      return "icon-dayu";
+    }else if(weather == '大雨转暴雨'){
+      return "icon-dayuzhuanbaoyu";
+    }else if(weather == '暴雨'){
+      return "icon-baoyu";
+    }else if(weather == '暴雨转大暴雨'){
+      return "icon-baoyuzhuandabaoyu";
+    }else if(weather == '大暴雨转特大暴雨'){
+      return "icon-dabaoyuzhuantedabaoyu";
+    }else if(weather == '大暴雨'){
+      return "icon-dabaoyu";
+    }else if(weather == '阴'){
+      return "icon-yin";
+    }else if(weather == '多云'){
+      return "icon-duoyun";
+    }else if(weather == '雾'){
+      return "icon-wu";
+    }else if(weather == '多云'){
+      return "icon-duoyun";
+    }else if(weather == '雷阵雨'){
+      return "icon-leizhenyu";
+    }else if(weather == '雷阵雨转多云'){
+      return "icon-dongyu";
+    }else if(weather == '阵雨'){
+      return "icon-zhenyu";
+    }else{
+      return 'icon-weizhitianqi'
+    }
   }
 
   //获取实时新闻

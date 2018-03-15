@@ -42,45 +42,14 @@
   </div>
   <div class="bottom-box">
     <div class="bottom-content">
-      <div class="day">
-        <div class="b-t1">今天</div>
+      <div class="day" *ngFor="let item of todayWeather.future; index as i">
+        <div class="b-t1">{{i == 0 ? '今天': item.data}}</div>
         <div class="b-icon">
-          <i class="iconfont icon-dayu"></i>
+          <i class="iconfont {{item.icon}}"></i>
+          <div class="b-weather">{{item.weather}}</div>
         </div>
-        <div class="b-wendu">36度</div>
+        <div class="b-wendu">{{item.temperature}}</div>
       </div>
-
-      <div class="day">
-        <div class="b-t1">28</div>
-        <div class="b-icon">
-          <i class="iconfont icon-dayu"></i>
-        </div>
-        <div class="b-wendu">36度</div>
-      </div>
-
-      <div class="day">
-        <div class="b-t1">29</div>
-        <div class="b-icon">
-          <i class="iconfont icon-dayu"></i>
-        </div>
-        <div class="b-wendu">36度</div>
-      </div>
-
-      <div class="day">
-        <div class="b-t1">31</div>
-        <div class="b-icon">
-          <i class="iconfont icon-dongyu"></i>
-        </div>
-        <div class="b-wendu">36度</div>
-      </div>
-
-      <div class="day">
-        <div class="b-t1">31</div>
-        <div class="b-icon">
-          <i class="iconfont icon-baoyu"></i>
-        </div>
-        <div class="b-wendu">36度</div>
-      </div>
-    </div>
+  </div>
   </div>
 </ion-content>

@@ -7,7 +7,7 @@ import 'rxjs/add/operator/timeout'
 import * as $ from "jquery";
 @Injectable()
 export class HttpService {
-  private loading;
+  private loading:any;
   private timeout;
   private requestTime = 0;//同一时间发起了多少次请求
 
@@ -98,7 +98,11 @@ export class HttpService {
     this.requestTime++; //一个页面有多少个请求
     let _str = this.transformParams(params);
     let URL = url + "?" + _str;
-    this.loading = this.commonService.loading();//打开loading界面
+    if (!this.timeout) { //如果没有计时器，新建一个
+      this.timeout = setTimeout(() => {
+        this.loading = this.commonService.loading();
+      }, 500);   //一个请求超过500ms才创建loading界面；
+    }
     let that = this;
     let promise = new Promise((resolve, reject) => {
       $.ajax({
@@ -111,8 +115,14 @@ export class HttpService {
         success: function (res) {
           //先判断是否只有一次请求
           if (that.requestTime == 1) {
-            that.loading.dismiss();
-            that.loading = null;
+            if (that.timeout) {
+              clearTimeout(that.timeout); //不管500ms是否达到，删掉定时器。
+              that.timeout = null;
+            }
+            if (that.loading) {
+              that.loading.dismiss();
+              that.loading = null;
+            }
             that.requestTime -= 1;
           } else {//如果有多个请求，不做任何处理
             that.requestTime -= 1;
@@ -133,10 +143,13 @@ export class HttpService {
     })
     return promise;
   }
+
+
   private handleError(error: Response) {
     console.log("Server Error: " + error);
     return Promise.reject(error);
   }
+
 
   private transformParams(data) {
     let param = function (obj) {
@@ -169,4 +182,5 @@ export class HttpService {
     };
     return String(data) !== '[object File]' ? param(data) : data;
   }
+
 }
