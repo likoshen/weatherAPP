@@ -77,7 +77,7 @@ export class HomePage {
       this.todayWeather.temp = res.result.sk.temp;
 		}).catch(err => {
 			console.log(err);
-		})
+		});
   }
 
   //获取实时新闻
