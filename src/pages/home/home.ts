@@ -6,7 +6,7 @@ import { TokenService } from '../../providers/token-service';
 /**
  api地址：https://www.juhe.cn/docs/api/id/39
  */
-
+declare let baidumap_location: any;
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -39,12 +39,12 @@ export class HomePage {
   ) {
   }
   ionViewWillEnter(){
-    
     this.isShowWhiteDay = this.tokenCtrl.isShowWhiteDay;
     this.imgurl = this.isShowWhiteDay == "false" ? 'assets/images/taiyang.png' : 'assets/images/taiyang_black.png'
     console.log(typeof(this.isShowWhiteDay));
   }
   ionViewDidLoad() {
+    // this.baidulocation();
     this.getNews();
     this.getWeather();
     console.log('ionViewDidLoad HomePage');
@@ -157,5 +157,12 @@ export class HomePage {
     this.navCtrl.push('InformationDetailPage', item);
   }
 
-
+  baidulocation(){
+    baidumap_location.getCurrentPosition(function (result) {
+      alert(JSON.stringify(result));
+        console.log(JSON.stringify(result, null, 4));
+    }, function (error) {
+      alert(JSON.stringify(error))
+  });
+}
 }
