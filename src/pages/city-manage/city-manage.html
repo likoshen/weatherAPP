@@ -27,7 +27,7 @@
       <i class="iconfont icon-shanchu2 item-del" *ngIf="isShowDelete" (click)="deleteCity(item, i)"></i>
       <i class="iconfont icon-xue item-logo"></i>
       <span class="address">{{item.name}}</span>
-      <span class="wendu" *ngIf="!isShowDelete">28/30</span>
+      <span class="wendu" *ngIf="!isShowDelete">{{temperature}}</span>
       <span class="item-btn" *ngIf="isShowDelete">
         <button [ngClass]="{'opacity5': item.isSelected}" (click)="setCity(item, i)">{{item.isSelected ? '已为提醒城市' : '设为提醒城市'}}</button>
       </span>

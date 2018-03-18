@@ -10,6 +10,7 @@ import { CommonService } from '../providers/CommonService';
 import { HttpService } from '../providers/HttpService';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from '../providers/token-service';
+import { JPush } from 'ionic3-jpush';
 
 @NgModule({
   declarations: [MyApp],
@@ -31,6 +32,7 @@ import { TokenService } from '../providers/token-service';
   entryComponents: [MyApp],
   providers: [
     StatusBar,
+    JPush,
     BusinessService,
     CommonService,
     TokenService,

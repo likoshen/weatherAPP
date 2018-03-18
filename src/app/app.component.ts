@@ -2,6 +2,7 @@ import { TokenService } from './../providers/token-service';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
+import { JPush } from 'ionic3-jpush';
 import { SplashScreen } from '@ionic-native/splash-screen';
 declare let baidumap_location: any;
 @Component({
@@ -14,7 +15,8 @@ export class MyApp {
     platform: Platform, 
     statusBar: StatusBar, 
     splashScreen: SplashScreen,
-    tokenCtrl: TokenService,
+    public jPush: JPush,
+    public tokenCtrl: TokenService,
   ) {
    
     platform.ready().then(() => {
@@ -22,16 +24,28 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      this.baidulocation();
+      this.jPush.init();
+      // this.jPush.getRegistrationID().then(regid => {
+      //   alert(regid)
+      // })
+      
+      // tokenCtrl.localDataArray = JSON.stringify([{name: '从化市',isSelected: false}])
+      if(platform.is("android")){
+        this.baidulocation(this);
+      }
+      // alert()
       if(!tokenCtrl.isShowWhiteDay){
-        tokenCtrl.isShowWhiteDay = false;
+        this.tokenCtrl.isShowWhiteDay = false;
       }
     });
   }
-  baidulocation(){
+  baidulocation(that){   
     baidumap_location.getCurrentPosition(function (result) {
-      alert(JSON.stringify(result));
-        console.log(JSON.stringify(result, null, 4));
+      // alert(JSON.stringify(result));
+        if(result.locType == 161){
+          // alert(result.city)
+          that.tokenCtrl.localData = result.city;
+        }
     }, function (error) {
       alert(JSON.stringify(error))
   });

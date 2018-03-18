@@ -19,6 +19,9 @@
 
 
 <ion-content [ngClass]="{'whiteday':isShowWhiteDay == 'false', 'blockday': isShowWhiteDay== 'true'}">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content  refreshingText="更新天气"></ion-refresher-content>
+      </ion-refresher>
   <div class="top-content">
     <img src="{{imgurl}}" alt="" class="top-img">
     <div class="current-wendu">{{todayWeather.temp}}</div>
@@ -37,7 +40,7 @@
         <li></li>
         <li></li>
       </ul>
-      <button class="moreNew" (click)="moreInfo()">更多</button>
+      <button class="moreNew" (click)="moreInfo()" tappable>更多</button>
     </div>
   </div>
   <div class="bottom-box">

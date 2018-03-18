@@ -18,6 +18,9 @@ import { IonicPage, NavController, NavParams, ModalController, ViewController } 
 export class CityManagePage {
   localDataArray:any = [];
   isShowDelete = false;
+  location;//定位到的具体城市
+  temperature;
+  currentCity;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -26,10 +29,20 @@ export class CityManagePage {
     private tipCtrl: CommonService,
     private viewCtrl: ViewController
   ) {
+    this.location = this.stogeCtrl.localData;
+    this.currentCity = this.location;
+    this.temperature = JSON.parse(this.stogeCtrl.todayWeather).temperature;
   }
 
   ionViewDidLoad() {
-    this.localDataArray =  JSON.parse(this.stogeCtrl.localDataArray);
+    if(this.stogeCtrl.localDataArray){
+      this.localDataArray =  JSON.parse(this.stogeCtrl.localDataArray) 
+    }
+    // this.localDataArray =  JSON.parse(this.stogeCtrl.localDataArray) ?  JSON.parse(this.stogeCtrl.localDataArray) : [];
+    if(this.localDataArray.length<1){
+      this.localDataArray.push({name:this.location,isSelected:true});
+    }
+
     console.log(this.stogeCtrl.localDataArray);
     // this.stogeCtrl.localDataArray =JSON.stringify([{name:"茂名市",isSelected: false},{name:"广州市",isSelected: false},{name:"深圳市",isSelected: false}]);
   }
@@ -52,6 +65,7 @@ export class CityManagePage {
   setCity(item:any,index:number){
     console.log('当前索引是：'+ index);
     item.isSelected = true;
+    this.currentCity = this.localDataArray[index].name;
     this.localDataArray.forEach((element,key) => {
       if(key != index){
         element.isSelected = false;
@@ -72,6 +86,6 @@ export class CityManagePage {
     })
   }
   goBack(){
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss(this.currentCity);
   }
 }

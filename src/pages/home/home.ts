@@ -6,7 +6,6 @@ import { TokenService } from '../../providers/token-service';
 /**
  api地址：https://www.juhe.cn/docs/api/id/39
  */
-declare let baidumap_location: any;
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -19,7 +18,7 @@ export class HomePage {
   dataArray = [];//保存时间数组
   todayWeather: any = {
     weather: '',  //当天天气
-    city: '',     //当地城市
+    city: '从化市',     //当地城市
     temperature:'', //气温范围
     temp: '',   //当前温度
     future: []
@@ -40,52 +39,77 @@ export class HomePage {
   }
   ionViewWillEnter(){
     this.isShowWhiteDay = this.tokenCtrl.isShowWhiteDay;
+    if(this.tokenCtrl.isShowWhiteDay){
+      this.isShowWhiteDay = this.tokenCtrl.isShowWhiteDay;
+    }else{
+      this.isShowWhiteDay = "false";
+    }
     this.imgurl = this.isShowWhiteDay == "false" ? 'assets/images/taiyang.png' : 'assets/images/taiyang_black.png'
     console.log(typeof(this.isShowWhiteDay));
   }
   ionViewDidLoad() {
-    // this.baidulocation();
+  
+    if(this.tokenCtrl.todayWeather){
+      this.todayWeather = JSON.parse(this.tokenCtrl.todayWeather);
+    }else{
+      this.tokenCtrl.todayWeather = this.todayWeather;
+    }
     this.getNews();
     this.getWeather();
-    console.log('ionViewDidLoad HomePage');
+   
   }
   //前往城市管理
   goCityMange(){
     let pages = this.modalCtrl.create("CityManagePage");
     pages.present();
+    pages.onDidDismiss(data => {
+      this.getWeather(undefined,data);
+    })
   }
  //前往资讯页
   goInformation(){
+    
     this.navCtrl.push("InformationPage");
   }
-
+ 
+  // 下拉刷新？
+  doRefresh(event){
+    this.getWeather(event);
+  }
   //更多按钮，是跳转到资讯列表
   moreInfo(){
     this.navCtrl.push("InformationPage");
   }
  
-  getWeather(){
+  getWeather(refresher?:any, currentCity?:any){
+    
+    // alert(this.location);
     let url = 'http://v.juhe.cn/weather/index';
 		let param = {
-			cityname: "广州",
+			cityname: currentCity || this.todayWeather.city,
 			key: '6c0260a599a7c9bba7bf30385193928e'
-		}
+    }
+    let that = this;
 		this.http.ajaxHttp(url, param).then((res: any) => {
-      console.log(res.result);
-      this.todayWeather.weather = res.result.today.weather;
-      this.todayWeather.city = res.result.today.city;
-      this.todayWeather.temperature = res.result.today.temperature;
-      this.todayWeather.temp = res.result.sk.temp;
+      console.log(JSON.stringify(res));
+      that.todayWeather.weather = res.result.today.weather;
+      that.todayWeather.city = res.result.today.city;
+      that.todayWeather.temperature = res.result.today.temperature;
+      that.todayWeather.temp = res.result.sk.temp;
       let obj = res.result.future;
+      this.tokenCtrl.todayWeather = JSON.stringify(this.todayWeather);
+      if(refresher){
+        refresher.complete();
+      }
       for(let item in obj){
-         this.dataArray.push({
+        that.dataArray.push({
             data: item.substr(10,2),
             weather: obj[item].weather,
             temperature: obj[item].temperature,
             icon: this.getIcon(obj[item].weather)
          });
       }
-      console.log(this.dataArray);
+      // console.log(this.dataArray);
       this.todayWeather.future = this.dataArray.slice(0,5);
 		}).catch(err => {
 			console.log(err);
@@ -143,10 +167,13 @@ export class HomePage {
 			key: '942d3f78c426cd99c23ee3043d99f898'
 		}
 		this.http.ajaxHttp(url, param).then((res: any) => {
-			console.log(res.result.data);
-      for(let i=0; i<3; i++){
-        this.resultArray.push( res.result.data[i]);
+      if(res.resultcode != 112){
+        // console.log(JSON.stringify(res.result.data));
+        for(let i=0; i<3; i++){
+          this.resultArray.push( res.result.data[i]);
+        }
       }
+	
 		}).catch(err => {
 			console.log(err);
 		})
@@ -157,12 +184,4 @@ export class HomePage {
     this.navCtrl.push('InformationDetailPage', item);
   }
 
-  baidulocation(){
-    baidumap_location.getCurrentPosition(function (result) {
-      alert(JSON.stringify(result));
-        console.log(JSON.stringify(result, null, 4));
-    }, function (error) {
-      alert(JSON.stringify(error))
-  });
-}
 }

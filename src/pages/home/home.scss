@@ -220,4 +220,17 @@ page-home {
     text-align: center;
     font-size:1.1rem;
   }
+
+  ion-content.has-refresher > .scroll-content{
+    background-color: transparent;
+  }
+  .has-refresher > .scroll-content{
+    border:0;
+  }
+  .refresher-refreshing .spinner-ios line, .refresher-refreshing .spinner-ios-small line, .refresher-refreshing .spinner-crescent circle{
+    stroke:#fff;
+  }
+  .refresher-pulling-text, .refresher-refreshing-text{
+    color:#fff;
+  }
 }

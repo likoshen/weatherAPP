@@ -89,7 +89,8 @@
         <variable name="IOS_LOCATION_DESC" value="请点击'好'以允许访问。" />
     </plugin>
     <allow-navigation href="http://192.168.199.115:8100" />
-    <allow-navigation href="http://192.168.199.115:8101" />
-    <engine name="android" spec="~6.4.0" />
-    <allow-navigation href="http://192.168.14.22:8101" />
+    <plugin name="jpush-phonegap-plugin" spec="^3.4.1">
+        <variable name="APP_KEY" value="1117bd2b5337cac65ae37103" />
+    </plugin>
+    <engine name="android" spec="~6.2.3" />
 </widget>
